@@ -50,17 +50,17 @@
   ;; the literal list.
   ;; Evaluating the form (+ 1 2) returns the number 3, but evaluating the form
   ;; '(+ 1 2) returns the list (+ 1 2).
-  (assert-equal ____ (+ 1 2))
-  (assert-equal ____ '(+ 1 2))
-  (assert-equal ____ (list '+ 1 2))
+  (assert-equal 3 (+ 1 2))
+  (assert-equal '(+ 1 2) '(+ 1 2))
+  (assert-equal '(+ 1 2) (list '+ 1 2))
   ;; The 'X syntax is syntactic sugar for (QUOTE X).
-  (true-or-false? ____ (equal '(/ 4 0) (quote (/ 4 0)))))
+  (true-or-false? t (equal '(/ 4 0) (quote (/ 4 0)))))
 
 (define-test listp
   ;; LISTP is a predicate which returns true if the argument is a list.
-  (assert-equal ____ (listp '(1 2 3)))
-  (assert-equal ____ (listp 100))
-  (assert-equal ____ (listp "Hello world"))
-  (assert-equal ____ (listp nil))
-  (assert-equal ____ (listp (+ 1 2)))
-  (assert-equal ____ (listp '(+ 1 2))))
+  (assert-equal t (listp '(1 2 3)))
+  (assert-equal nil (listp 100))
+  (assert-equal nil (listp "Hello world"))
+  (assert-equal t (listp nil))
+  (assert-equal nil (listp (+ 1 2)))
+  (assert-equal t (listp '(+ 1 2))))
